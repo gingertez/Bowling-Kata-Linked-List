@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BowlingLinkedList
 {
-    public static class RollHelper
+    public static class Helpers
     {
         public const int ASCII_OFFSET = 48;
         public static int GetRollValue(this char roll)
@@ -22,6 +22,11 @@ namespace BowlingLinkedList
             }
 
             return roll - ASCII_OFFSET;
+        }
+
+        public static bool IsBonusBallsFrame<T>(this LinkedListNode<T> node)
+        {
+            return (node != null && node.Next == null);
         }
     }
 }

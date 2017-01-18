@@ -11,17 +11,6 @@ namespace BowlingLinkedListTests
     [TestFixture]
     public class BowlingGameTests
     {
-        [TestCase("12", 3)]
-        [TestCase("X", 10)]
-        [TestCase("3/", 10)]
-        [TestCase("12|34", 10)]
-        [TestCase("1/|3-", 16)]
-        [TestCase("1/|3/", 23)]
-        [TestCase("1/|X", 30)]
-        [TestCase("X|12", 16)]
-        [TestCase("X|1/", 30)]
-        [TestCase("X|X|1-", 33)]
-        [TestCase("X|X|X|1-", 63)]
         [TestCase("1-|1-|1-|1-|1-|1-|1-|1-|1-|1-||", 10)]
         [TestCase("5/|5/|5/|5/|5/|5/|5/|5/|5/|5/||5", 150)]
         [TestCase("X|7/|9-|X|-8|8/|-6|X|X|X||81", 167)]

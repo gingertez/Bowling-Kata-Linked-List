@@ -12,7 +12,7 @@ namespace BowlingLinkedList
 
         public int Score(LinkedListNode<IFrame> node = null)
         {
-            var score = 10;
+            int score = node.IsBonusBallsFrame() ? 0 : 10;
 
             if (node != null && node.Next != null)
             {

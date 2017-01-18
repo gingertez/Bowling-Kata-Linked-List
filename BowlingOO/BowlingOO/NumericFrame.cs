@@ -21,7 +21,7 @@ namespace BowlingLinkedList
 
         public int Score(LinkedListNode<IFrame> node = null)
         {
-            return _rolls.Sum();
+            return node.IsBonusBallsFrame() ? 0 : _rolls.Sum();
         }
     }
 }

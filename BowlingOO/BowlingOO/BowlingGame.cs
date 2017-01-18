@@ -32,10 +32,6 @@ namespace BowlingLinkedList
                 current = enumerator.Current;
                 score += current.Score(_frames.Find(current));
             }
-            if (_frames.Count == 11)
-            {
-                score -= _frames.Last().Score(null);
-            }
             return score;
         }
     }
