@@ -10,7 +10,7 @@ namespace BowlingLinkedList
 {
     public class BowlingGame
     {
-        List<IFrame> _frames = new List<IFrame>();
+        LinkedList<IFrame> _frames = new LinkedList<IFrame>();
         public BowlingGame(string gameScore)
         {
             var frameScores = gameScore.Replace("||", "|").Split('|');
@@ -18,7 +18,7 @@ namespace BowlingLinkedList
             foreach (var frameScore in frameScores)
             {
                 idx++;
-                _frames.Add(FrameFactory.GetFrame(frameScore, frameScores.Skip(idx).ToList()));
+                _frames.AddLast(FrameFactory.GetFrame(frameScore, frameScores.Skip(idx).ToList()));
             }
         }
 
@@ -27,7 +27,7 @@ namespace BowlingLinkedList
             var score = _frames.Select(x => x.Score()).Sum();
             if (_frames.Count == 11)
             {
-                score -= _frames[10].Score();
+                score -= _frames.Last().Score();
             }
             return score;
         }
