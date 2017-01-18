@@ -24,7 +24,14 @@ namespace BowlingLinkedList
 
         public int Score()
         {
-            var score = _frames.Select(x => x.Score()).Sum();
+            var score = 0;
+            var enumerator = _frames.GetEnumerator();
+            IFrame current;
+            while (enumerator.MoveNext())
+            {
+                current = enumerator.Current;
+                score += current.Score();
+            }
             if (_frames.Count == 11)
             {
                 score -= _frames.Last().Score();
