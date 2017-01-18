@@ -9,17 +9,22 @@ namespace BowlingLinkedList
     public class SpareFrame : IFrame
     {
         private int? _nextRoll = 0;
-        public SpareFrame(string frameScore, string nextFrameScore)
+        public SpareFrame(string frameScore)
         {
             FirstRoll = frameScore[0].GetRollValue();
-            _nextRoll = FrameFactory.GetFrame(nextFrameScore, new List<string>()).FirstRoll;
         }
 
         public int FirstRoll { get; private set; }
         
         public int Score(LinkedListNode<IFrame> node = null)
         {
-            return 10 + (_nextRoll ?? 0);
+            var score = 10;
+
+            if (node != null && node.Next != null)
+            {
+                score += node.Next.Value.FirstRoll;
+            }
+            return score;
         }
     }
 }

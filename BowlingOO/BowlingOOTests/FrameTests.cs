@@ -31,21 +31,29 @@ namespace BowlingLinkedListTests
         [Test]
         public void TestSpareFrameScore()
         {
-            var frame = new SpareFrame("12", null);
+            var frame = new SpareFrame("1/");
             Assert.That(frame.Score(), Is.EqualTo(10));
         }
 
         [Test]
         public void TestSpareFrameScoreWithNextRoll()
         {
-            var frame = new SpareFrame("12", "43");
-            Assert.That(frame.Score(), Is.EqualTo(14));
+            var frame = new SpareFrame("1/");
+            var node = new LinkedListNode<IFrame>(frame);
+
+            var nextFrame = new NumericFrame("45");
+
+            var ll = new LinkedList<IFrame>();
+            ll.AddFirst(node);
+            ll.AddLast(nextFrame);
+
+            Assert.That(frame.Score(node), Is.EqualTo(14));
         }
 
         [Test]
-        public void TestSpareFrameFirstToll()
+        public void TestSpareFrameFirstRoll()
         {
-            var frame = new SpareFrame("12", null);
+            var frame = new SpareFrame("1/");
             Assert.That(frame.FirstRoll, Is.EqualTo(1));
         }
 
@@ -84,6 +92,23 @@ namespace BowlingLinkedListTests
             ll.AddLast(nextFrame);
 
             Assert.That(frame.Score(node), Is.EqualTo(19));
+        }
+
+        [Test]
+        public void TestStrikeFrameScoreWithTwoAdditionalFrames()
+        {
+            var frame = new StrikeFrame();
+            var node = new LinkedListNode<IFrame>(frame);
+
+            var nextFrames = new List<IFrame> {
+                new StrikeFrame(),
+                new NumericFrame("45")
+            };
+
+            var ll = new LinkedList<IFrame>(nextFrames);
+            ll.AddFirst(node);
+
+            Assert.That(frame.Score(node), Is.EqualTo(24));
         }
     }
 }

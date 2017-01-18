@@ -22,9 +22,7 @@ namespace BowlingLinkedList
 
             if (frameScore.Length > 1 && frameScore[1] == '/')
             {
-                return new SpareFrame(
-                    frameScore, 
-                    nextFrames?.Count > 0 ? nextFrames[0] : null);
+                return new SpareFrame(frameScore);
             }
 
             return new NumericFrame(frameScore);
