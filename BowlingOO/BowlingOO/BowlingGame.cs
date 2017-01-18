@@ -30,11 +30,11 @@ namespace BowlingLinkedList
             while (enumerator.MoveNext())
             {
                 current = enumerator.Current;
-                score += current.Score();
+                score += current.Score(null);
             }
             if (_frames.Count == 11)
             {
-                score -= _frames.Last().Score();
+                score -= _frames.Last().Score(null);
             }
             return score;
         }

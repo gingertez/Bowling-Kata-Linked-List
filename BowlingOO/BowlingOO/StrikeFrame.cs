@@ -13,7 +13,7 @@ namespace BowlingLinkedList
         public StrikeFrame(string frame1Score, string frame2Score)
         {
             var frame1 = FrameFactory.GetFrame(frame1Score);
-            _nextRolls.Add(frame1.Score());
+            _nextRolls.Add(frame1.Score(null));
 
             if (frame1 is StrikeFrame)
             {
@@ -28,7 +28,7 @@ namespace BowlingLinkedList
 
         public int FirstRoll => 10;
 
-        public int Score()
+        public int Score(LinkedListNode<IFrame> node = null)
         {
             return 10 + _nextRolls.Sum();
         }

@@ -19,7 +19,7 @@ namespace BowlingLinkedList
 
         public int FirstRoll => _rolls[0];
 
-        public int Score()
+        public int Score(LinkedListNode<IFrame> node = null)
         {
             return _rolls.Sum();
         }

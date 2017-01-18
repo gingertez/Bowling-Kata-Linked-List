@@ -9,6 +9,6 @@ namespace BowlingLinkedList
     public interface IFrame
     {
         int FirstRoll { get; }
-        int Score();
+        int Score(LinkedListNode<IFrame> node);
     }
 }

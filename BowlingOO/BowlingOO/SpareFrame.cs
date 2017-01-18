@@ -17,7 +17,7 @@ namespace BowlingLinkedList
 
         public int FirstRoll { get; private set; }
         
-        public int Score()
+        public int Score(LinkedListNode<IFrame> node = null)
         {
             return 10 + (_nextRoll ?? 0);
         }
