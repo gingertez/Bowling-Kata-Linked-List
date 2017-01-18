@@ -17,9 +17,7 @@ namespace BowlingLinkedList
 
             if (frameScore == "X")
             {
-                return new StrikeFrame(
-                    nextFrames?.Count > 0 ? nextFrames[0] : null,
-                    nextFrames?.Count > 1 ? nextFrames[1] : null);
+                return new StrikeFrame();
             }
 
             if (frameScore.Length > 1 && frameScore[1] == '/')

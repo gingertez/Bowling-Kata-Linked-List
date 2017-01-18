@@ -52,22 +52,38 @@ namespace BowlingLinkedListTests
         [Test]
         public void TestStrikeFrameScore()
         {
-            var frame = new StrikeFrame(null, null);
+            var frame = new StrikeFrame();
             Assert.That(frame.Score(), Is.EqualTo(10));
         }
 
         [Test]
         public void TestStrikeFrameScoreWithOneAdditionalRoll()
         {
-            var frame = new StrikeFrame("4-", null);
-            Assert.That(frame.Score(), Is.EqualTo(14));
+            var frame = new StrikeFrame();
+            var node = new LinkedListNode<IFrame>(frame);
+
+            var nextFrame = new NumericFrame("4");
+
+            var ll = new LinkedList<IFrame>();
+            ll.AddFirst(node);
+            ll.AddLast(nextFrame);
+
+            Assert.That(frame.Score(node), Is.EqualTo(14));
         }
 
         [Test]
         public void TestStrikeFrameScoreWithTwoAdditionalRoll()
         {
-            var frame = new StrikeFrame("45", null);
-            Assert.That(frame.Score(), Is.EqualTo(19));
+            var frame = new StrikeFrame();
+            var node = new LinkedListNode<IFrame>(frame);
+
+            var nextFrame = new NumericFrame("45");
+
+            var ll = new LinkedList<IFrame>();
+            ll.AddFirst(node);
+            ll.AddLast(nextFrame);
+
+            Assert.That(frame.Score(node), Is.EqualTo(19));
         }
     }
 }
