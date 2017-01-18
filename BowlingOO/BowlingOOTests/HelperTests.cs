@@ -1,5 +1,6 @@
 ﻿using BowlingLinkedList;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 
 namespace BowlingLinkedListTests
@@ -13,6 +14,12 @@ namespace BowlingLinkedListTests
         public void TestRollValue(char roll, int expectedValue)
         {
             Assert.That(roll.GetRollValue(), Is.EqualTo(expectedValue));
+        }
+
+        [Test]
+        public void TestRollValueThrowsErrorOnInvalidCharacter()
+        {
+            Assert.Throws<InvalidOperationException>(() => 'A'.GetRollValue());
         }
 
         [TestCase(null, null, false)]
