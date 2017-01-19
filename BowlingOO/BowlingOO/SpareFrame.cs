@@ -4,13 +4,12 @@ namespace BowlingLinkedList
 {
     public class SpareFrame : IFrame
     {
-        private int? _nextRoll = 0;
         public SpareFrame(string frameScore)
         {
             FirstRoll = frameScore[0].GetRollValue();
         }
 
-        public int FirstRoll { get; private set; }
+        public int FirstRoll { get; }
         
         public int Score(LinkedListNode<IFrame> node = null)
         {

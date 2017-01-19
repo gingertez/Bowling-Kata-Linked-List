@@ -13,7 +13,7 @@ namespace BowlingLinkedListTests
         [TestCase("12", typeof(NumericFrame))]
         public void TestCorrectFrameTypeCreated(string frameScore, Type expectedType)
         {
-            var createdFrame = FrameFactory.GetFrame(frameScore, new List<string>());
+            var createdFrame = FrameFactory.GetFrame(frameScore);
 
             Assert.That(createdFrame, Is.TypeOf(expectedType));
         }

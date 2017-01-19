@@ -13,7 +13,7 @@ namespace BowlingLinkedList
             foreach (var frameScore in frameScores)
             {
                 idx++;
-                _frames.AddLast(FrameFactory.GetFrame(frameScore, frameScores.Skip(idx).ToList()));
+                _frames.AddLast(FrameFactory.GetFrame(frameScore));
             }
         }
 

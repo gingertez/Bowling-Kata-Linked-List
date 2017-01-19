@@ -4,7 +4,7 @@ namespace BowlingLinkedList
 {
     public static class FrameFactory
     {
-        public static IFrame GetFrame(string frameScore, List<string> nextFrames = null)
+        public static IFrame GetFrame(string frameScore)
         {
             if (string.IsNullOrEmpty(frameScore))
             {
