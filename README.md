@@ -21,4 +21,3 @@ for that frame is the value of the next two balls rolled.
 In the tenth frame a player who rolls a spare or strike is allowed to roll the extra
 balls to complete the frame.  However no more than three balls can be rolled in
 tenth frame.
-
